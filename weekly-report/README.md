@@ -27,8 +27,7 @@ touch report.md
 ```
 
 ```sh
-python main.py
-# Password:
+python main.py -h
 ```
 
 ## vim에서 pandoc으로 변환 후 복붙
