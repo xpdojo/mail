@@ -41,6 +41,8 @@ def main(
         text = f.read()
         html = markdown(text)
 
+    shutil.copy(markdown_filepath, f"report-{today}.md")
+
     email_message.set_content(MIMEText(html, "html"))
 
     # Send the message via our own SMTP server.
