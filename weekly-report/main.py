@@ -1,4 +1,5 @@
 import logging
+import shutil
 import smtplib
 from datetime import date
 from email.headerregistry import Address
@@ -8,8 +9,6 @@ from email.mime.text import MIMEText
 from markdown import markdown
 from pwinput import pwinput
 
-today = date.today().strftime("%Y-%m-%d")
-SUBJECT = f"[주간업무보고] {today} 개발팀 임창수"
 
 def main(
         mail_domain: str,
@@ -18,6 +17,10 @@ def main(
         to_username: str,
         markdown_filepath: str,
 ):
+    
+    today = date.today().strftime("%Y-%m-%d")
+    SUBJECT = f"[주간업무보고] {today} 개발팀 {display_name}"
+
     email_message = EmailMessage()
     email_message["Subject"] = SUBJECT
     email_message["From"] = Address(
@@ -82,7 +85,7 @@ Usages:
                         default='cs.im', type=str,
                         help='Mail Sender')
     parser.add_argument('-n', '--display-name', metavar='<from_display_name>', required=False,
-                        default='Changsu Im', type=str,
+                        default='임창수', type=str,
                         help='Mail Sender Display Name')
     parser.add_argument('-t', '--to-username', metavar='<to_username>', required=False,
                         default='cs.im', type=str,
