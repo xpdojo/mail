@@ -1,2 +1,2 @@
-# mail
-Mail Server
+# Email
+

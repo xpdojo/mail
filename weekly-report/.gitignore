@@ -1,0 +1,9 @@
+## JetBrains
+.idea
+
+## venv
+.venv
+activate
+
+## report
+report.md
